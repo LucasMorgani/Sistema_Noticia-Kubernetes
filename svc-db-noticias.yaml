@@ -1,11 +1,11 @@
 apiVersion: v1
-kind: Service
-metadata:
-  name: svc-db-noticias
-spec:
-  type: ClusterIP
-  ports:
-    - port: 3306 #targetPort: 3306
-  selector:
+kind: Service             # Tipo do objeto como Service
+metadata:                 # Passando metadados
+  name: svc-db-noticias 
+spec:                     # Especificações
+  type: ClusterIP         # Tipo do Service
+  ports:                  # Porta em que o ClusterIP irá ouvir (internamente)
+    - port: 3306
+  selector:               # Definindo para quem o Service irá encaminhar
     app: db-noticias
     

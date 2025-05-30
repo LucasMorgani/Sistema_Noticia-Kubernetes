@@ -1,6 +1,6 @@
 apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: portal-configmap
-data:
+kind: ConfigMap                           # Definindo tipo como ConfigMap
+metadata:                                 # Passando nome como meta-dados
+  name: portal-configmap               
+data:                                     # Passando os dados do configmap
   IP_SISTEMA: http://192.168.49.2:30001

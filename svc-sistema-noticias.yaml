@@ -1,11 +1,11 @@
 apiVersion: v1
-kind: Service
-metadata:
+kind: Service                   # Tipo do objeto como Service
+metadata:                       # Metadados
   name: svc-sistema-noticias
-spec:
-  type: NodePort
-  ports:
-    - port: 80
-      nodePort: 30001
-  selector:
+spec:                           # Especificações  
+  type: NodePort                # Tipo do Service como NodePort
+  ports:                        # Gerenciando as portas
+    - port: 80                  # Expondo internamente
+      nodePort: 30001           # Expondo externamente
+  selector:                     # Definindo para quem o service irá encaminhar
     app: sistema-noticias

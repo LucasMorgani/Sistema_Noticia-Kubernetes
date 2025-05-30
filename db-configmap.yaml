@@ -1,8 +1,8 @@
-apiVersion: v1
-kind: ConfigMap
+apiVersion: v1 
+kind: ConfigMap                 # Definindo o objeto como ConfigMap
 metadata:
-  name: db-configmap
-data:
+  name: db-configmap            # Definindo nome do objeto
+data:                           # Passando os dados
   MYSQL_ROOT_PASSWORD: q1w2e3r4
   MYSQL_DATABASE: empresa
   MYSQL_PASSWORD: q1w2e3r4

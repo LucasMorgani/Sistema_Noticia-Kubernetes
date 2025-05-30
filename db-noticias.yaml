@@ -1,15 +1,15 @@
 apiVersion: v1
-kind: Pod
-metadata:
+kind: Pod                             # Definindo o tipo de recurso
+metadata:                             # Definindo meta-dados
   name: db-noticias
-  labels:
+  labels:                             # tag
     app: db-noticias
-spec:
-  containers:
-    - name: db-noticias-container
-      image: aluracursos/mysql-db:1
-      ports:
-        - containerPort: 3306
-      envFrom:
-        - configMapRef:
+spec:                                 # Definindo Especificações
+  containers:                         # Definindo Especificações dos Containers
+    - name: db-noticias-container     # Definindo o nome do Container
+      image: aluracursos/mysql-db:1   # Definindo a imagem para o Container
+      ports:                          # Definindo a porta para o Container
+        - containerPort: 3306         # Contianer escutando na porta 3306
+      envFrom:                        # Passando um configMap
+        - configMapRef:               
             name: db-configmap
