@@ -1,0 +1,26 @@
+#---------Configurando ReplicaSet
+apiVersion: apps/v1                               # Para utilizar ReplicaSet utilizamos apps/ em apiVersion
+kind: Deployment
+metadata:                                         # Metadata do ReplicaSet
+  name: portal-noticias-deployment
+#---------Especificações do ReplicaSet (Configurando o Pod)
+spec:                                             
+  template:                                       
+    metadata:                                     # Metadata do Pod
+      name: portal-noticias                       # Nome do Pod
+      labels:
+        app: portal-noticias                      # Tag do Pod
+    spec:                                       # Especificações do Pod
+      containers:                               
+        - name: portal-noticias-container       # Nome do container
+          image: aluracursos/portal-noticias:1  # Imagem do container
+          ports:                                # Porta do container I/O
+            - containerPort: 80
+          envFrom:                              # ConfigMap do container
+            - configMapRef:
+                name: portal-configmap
+#---------Configurando disponibilidade
+  replicas: 3                                     # Número de replicas desejadas
+  selector:                                       # Dizendo qual configuração de Pod usar (portal-noticias configurado anteriormente)
+    matchLabels:
+      app: portal-noticias

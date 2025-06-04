@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment                     # Tipo deployment
+metadata:                            # Definindo metadata do deployment
+  name: nginx-deployment             
+spec:                                # Especificações do deployment
+  replicas: 3                        # Definindo um ReplicaSet
+  template:                          # Passando o template de Pod
+    metadata:
+      name: nginx-pod
+      labels:
+        app: nginx-pod
+    spec:                           # Passando as especificações do Container
+      containers:
+        - name: nginx-container
+          image: nginx:stable
+          ports:
+            - containerPort: 81
+  selector:                         # Definindo qual template será usado
+    matchLabels:
+      app: nginx-pod                # Template com a label "nginx-pod"
